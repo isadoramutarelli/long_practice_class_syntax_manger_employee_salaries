@@ -1,8 +1,8 @@
 const chai = require('chai');
 const expect = chai.expect;
 
-const Employee = require('../employee');
-const Manager = require('../manager');
+const Employee = require('../classes/employee');
+const Manager = require('../classes/manager');
 
 describe('The Manager class', () => {
     let splinter;
@@ -14,24 +14,24 @@ describe('The Manager class', () => {
     beforeEach(() => {
         splinter = new Manager('Splinter', 100000, 'Sensei');
     });
-    
+
     describe('constructor function', () => {
         it('should have a name property', () => {
             expect(splinter).to.have.property('name')
         });
-        
+
         it('should have a salary property', () => {
             expect(splinter).to.have.property('salary')
         });
-        
+
         it('should have a title property', () => {
             expect(splinter).to.have.property('title');
         });
-        
+
         it('should have a manager property', () => {
             expect(splinter).to.have.property('manager')
         });
-        
+
         it('manager property should be set to null if no "manager" argument is passed', () => {
             expect(splinter.manager).to.eql(null);
         });
@@ -48,11 +48,11 @@ describe('The Manager class', () => {
     describe('addEmployee(employee) instance method', () => {
         it('should add an Employee instance to the employees array', () => {
             const leo = new Employee('Leonardo', 90000, 'Ninja');
-            
+
             expect(splinter.employees).to.eql([]);
-            
+
             splinter.addEmployee(leo);
-            
+
             expect(splinter.employees).to.eql([leo])
         });
     });
